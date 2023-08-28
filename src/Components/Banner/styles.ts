@@ -9,6 +9,13 @@ export const BannerContaier = styled.div`
   background-size: cover;
   font-weight: bold;
   padding-top: 340px;
+  position: relative;
+
+  .container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
 `
 export const Titulo = styled.h2`
   font-size: 36px;
