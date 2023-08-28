@@ -3,7 +3,7 @@ import { Cabecalho, LinkCart, LinkItem, Links } from './styles'
 import logo from '../../Assets/Images/logo.svg'
 import carrinho from '../../Assets/Images/carrinho.svg'
 
-export const Header = () => (
+const Header = () => (
   <Cabecalho>
     <div>
       <img src={logo} alt="Logo Eplay" />
@@ -25,3 +25,5 @@ export const Header = () => (
     </LinkCart>
   </Cabecalho>
 )
+
+export default Header

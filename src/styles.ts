@@ -21,10 +21,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${cores.branco};
     margin-top: 40px;
   }
-`
 
-export const Container = styled.div`
-  max-width: 1024px;
+  .container {
+    max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+  }
 `
