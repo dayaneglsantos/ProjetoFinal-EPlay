@@ -3,10 +3,17 @@ import Banner from './Components/Banner'
 import Header from './Components/Header'
 import { GlobalStyle } from './styles'
 
+import ProductsList from './Components/ProductsList'
+
 const rotas = createBrowserRouter([
   {
     path: '/',
-    element: <Banner />
+    element: (
+      <>
+        <Banner />
+        <ProductsList backgroundColor={'gray'} sectionTitle="Promoções" />
+      </>
+    )
   }
 ])
 
