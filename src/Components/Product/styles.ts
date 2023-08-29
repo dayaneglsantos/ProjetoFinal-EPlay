@@ -7,6 +7,7 @@ export const Card = styled.div`
   padding: 8px;
   border-radius: 8px;
   background-color: ${cores.cinza};
+  position: relative;
 
   img {
     width: 222px;
@@ -31,4 +32,9 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   margin-top: 16px;
+`
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
