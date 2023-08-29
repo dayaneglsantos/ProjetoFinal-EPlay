@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom'
 const Header = () => (
   <Cabecalho>
     <div>
-      <img src={logo} alt="Logo Eplay" />
+      <Link to="/">
+        <img src={logo} alt="Logo Eplay" />
+      </Link>
       <Links>
         <LinkItem>
           <Link to="/categorias">Categorias</Link>
