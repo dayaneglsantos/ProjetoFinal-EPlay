@@ -2,6 +2,7 @@ import { Cabecalho, LinkCart, LinkItem, Links } from './styles'
 
 import logo from '../../Assets/Images/logo.svg'
 import carrinho from '../../Assets/Images/carrinho.svg'
+import { Link } from 'react-router-dom'
 
 const Header = () => (
   <Cabecalho>
@@ -9,7 +10,7 @@ const Header = () => (
       <img src={logo} alt="Logo Eplay" />
       <Links>
         <LinkItem>
-          <a href="#">Categorias</a>
+          <Link to="/categorias">Categorias</Link>
         </LinkItem>
         <LinkItem>
           <a href="#">Novidades</a>

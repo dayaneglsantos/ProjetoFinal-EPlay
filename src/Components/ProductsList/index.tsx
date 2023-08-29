@@ -1,49 +1,29 @@
 import Product from '../Product'
 import { List, SectionContainer, Title } from './styles'
-import ResidentImg from '../../Assets/Images/resident.png'
+import Game from '../../Models/Game'
 
 export type Props = {
   sectionTitle: string
   backgroundColor: 'gray' | 'black'
+  games: Game[]
 }
 
-const ProductsList = ({ sectionTitle, backgroundColor }: Props) => (
+const ProductsList = ({ sectionTitle, backgroundColor, games }: Props) => (
   <SectionContainer backgroundColor={backgroundColor}>
     <div className="container">
       <Title>{sectionTitle}</Title>
       <List>
-        <Product
-          title="Título"
-          category="Ação"
-          description="Descrição do jogo"
-          img={ResidentImg}
-          sistem="Windows"
-          infos={['-15%', 'R$ 199,00']}
-        />
-        <Product
-          title="Título"
-          category="Ação"
-          description="Descrição do jogo"
-          img={ResidentImg}
-          sistem="Windows"
-          infos={['-15%', 'R$ 199,00']}
-        />
-        <Product
-          title="Título"
-          category="Ação"
-          description="Descrição do jogo"
-          img={ResidentImg}
-          sistem="Windows"
-          infos={['-15%', 'R$ 199,00']}
-        />
-        <Product
-          title="Título"
-          category="Ação"
-          description="Descrição do jogo"
-          img={ResidentImg}
-          sistem="Windows"
-          infos={['-15%', 'R$ 199,00']}
-        />
+        {games.map((game) => (
+          <Product
+            key={game.id}
+            title={game.title}
+            category={game.categorie}
+            description={game.description}
+            img={game.image}
+            sistem={game.sistem}
+            infos={game.infos}
+          />
+        ))}
       </List>
     </div>
   </SectionContainer>
