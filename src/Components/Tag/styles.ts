@@ -10,6 +10,4 @@ export const TagContainer = styled.div<Props>`
   font-weight: bold;
   display: inline-block;
   border-radius: 8px;
-  position: absolute;
-  top: 32px;
 `
