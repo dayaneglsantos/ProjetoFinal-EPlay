@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Hero from '../../Components/Hero'
 import Section from '../../Components/Section'
+import Galery from '../../Components/Galery'
 
 const Produto = () => {
   const parametros = useParams()
@@ -35,7 +36,7 @@ const Produto = () => {
         </p>
       </Section>
       <Section title="Galeria" bgColor="black">
-        <p>fgsdgf</p>
+        <Galery />
       </Section>
     </>
   )
