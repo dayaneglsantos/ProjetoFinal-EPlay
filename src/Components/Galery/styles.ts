@@ -44,7 +44,7 @@ export const Modal = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 
@@ -55,6 +55,10 @@ export const Modal = styled.div`
     height: 100%;
     top: 0;
     left: 0;
+  }
+
+  &.visible {
+    display: flex;
   }
 `
 
@@ -74,8 +78,14 @@ export const ModalContent = styled.div`
     font-weight: bold;
   }
 
-  img {
+  img,
+  iframe {
     display: block;
     max-width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 480px;
   }
 `
