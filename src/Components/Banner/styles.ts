@@ -1,21 +1,33 @@
 import styled from 'styled-components'
-import banner from '../../Assets/Images/banner-homem-aranha.png'
+
 import { TagContainer } from '../Tag/styles'
 
 export const BannerContaier = styled.div`
   width: 100%;
   height: 560px;
-  background-image: url(${banner});
+  display: block;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
-  padding-top: 340px;
   position: relative;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 
   .container {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    padding-top: 340px;
+    position: relative;
+    z-index: 1;
   }
 
   ${TagContainer} {

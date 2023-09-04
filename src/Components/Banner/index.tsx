@@ -1,22 +1,35 @@
+import { useState, useEffect } from 'react'
+import { Game } from '../../Pages/Home'
 import { ButtonLink } from '../Button/styles'
 import Tag from '../Tag'
 
 import { BannerContaier, Preco, Titulo } from './styles'
+import { formataPreco } from '../ProductsList'
 
-const Banner = () => (
-  <BannerContaier>
-    <div className="container">
-      <Tag size="big">Destaque do dia</Tag>
-      <div>
-        <Titulo>Marvel&apos;s Spider-Man: Miles Morales PS4 & PS5</Titulo>
-        <Preco>
-          De <span>R$ 250,00</span> <br />
-          por apenas R$ 99,99
-        </Preco>
+const Banner = () => {
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
+      .then((resp) => resp.json())
+      .then((json) => setGame(json))
+  }, [])
+
+  return (
+    <BannerContaier style={{ backgroundImage: `url(${game?.media.cover})` }}>
+      <div className="container">
+        <Tag size="big">Destaque do dia</Tag>
+        <div>
+          <Titulo>{game?.name}</Titulo>
+          <Preco>
+            De <span>{formataPreco(game?.prices.old)}</span> <br />
+            por apenas {formataPreco(game?.prices.current)}
+          </Preco>
+        </div>
+        <ButtonLink to="/produto">Aproveitar</ButtonLink>
       </div>
-      <ButtonLink to="/produto">Aproveitar</ButtonLink>
-    </div>
-  </BannerContaier>
-)
+    </BannerContaier>
+  )
+}
 
 export default Banner

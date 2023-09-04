@@ -1,110 +1,60 @@
+import { useEffect, useState } from 'react'
 import ProductsList from '../../Components/ProductsList'
-import resident from '../../Assets/Images/resident.png'
-import diablo from '../../Assets/Images/diablo.png'
-import starWars from '../../Assets/Images/star_wars.png'
-import zelda from '../../Assets/Images/zelda.png'
-import Game from '../../Models/Game'
 
-const promocoes: Game[] = [
-  {
-    id: 1,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: resident,
-    categorie: 'Ação',
-    infos: ['-10%', 'R$: 150,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 2,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: starWars,
-    categorie: 'Aventura',
-    infos: ['-25%', 'R$: 99,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 3,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: zelda,
-    categorie: 'RPG',
-    infos: ['-18%', 'R$: 125,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 4,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: diablo,
-    categorie: 'Ação',
-    infos: ['-30%', 'R$: 110,00'],
-    sistem: 'Windows'
-  }
-]
-const emBreve: Game[] = [
-  {
-    id: 1,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: resident,
-    categorie: 'Ação',
-    infos: ['-10%', 'R$: 150,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 2,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: starWars,
-    categorie: 'Aventura',
-    infos: ['-25%', 'R$: 99,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 3,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: zelda,
-    categorie: 'RPG',
-    infos: ['-18%', 'R$: 125,00'],
-    sistem: 'Windows'
-  },
-  {
-    id: 4,
-    title: 'Título',
-    description: 'Descrição completa do jogo',
-    image: diablo,
-    categorie: 'Ação',
-    infos: ['-30%', 'R$: 110,00'],
-    sistem: 'Windows'
-  }
-]
+const Categories = () => {
+  const [acao, setAcao] = useState([])
+  const [esportes, setEsportes] = useState([])
+  const [luta, setLuta] = useState([])
+  const [RPG, setRPG] = useState([])
+  const [simulacao, setSimulacao] = useState([])
 
-const Categories = () => (
-  <>
-    <ProductsList
-      games={promocoes}
-      backgroundColor={'gray'}
-      sectionTitle="RPG"
-    />
-    <ProductsList
-      games={emBreve}
-      backgroundColor={'black'}
-      sectionTitle="Ação"
-    />
-    <ProductsList
-      games={promocoes}
-      backgroundColor={'gray'}
-      sectionTitle="Aventura"
-    />
-    <ProductsList
-      games={emBreve}
-      backgroundColor={'black'}
-      sectionTitle="FPS"
-    />
-  </>
-)
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/acao')
+      .then((resp) => resp.json())
+      .then((json) => setAcao(json))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/esportes')
+      .then((resp) => resp.json())
+      .then((json) => setEsportes(json))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/luta')
+      .then((resp) => resp.json())
+      .then((json) => setLuta(json))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/rpg')
+      .then((resp) => resp.json())
+      .then((json) => setRPG(json))
+
+    fetch('https://fake-api-tau.vercel.app/api/eplay/simulacao')
+      .then((resp) => resp.json())
+      .then((json) => setSimulacao(json))
+  }, [])
+
+  return (
+    <>
+      <ProductsList
+        games={acao}
+        backgroundColor={'black'}
+        sectionTitle="Ação"
+      />
+      <ProductsList
+        games={esportes}
+        backgroundColor={'gray'}
+        sectionTitle="Esportes"
+      />
+      <ProductsList
+        games={luta}
+        backgroundColor={'black'}
+        sectionTitle="Luta"
+      />
+      <ProductsList games={RPG} backgroundColor={'gray'} sectionTitle="RPG" />
+      <ProductsList
+        games={simulacao}
+        backgroundColor={'black'}
+        sectionTitle="Simulação"
+      />
+    </>
+  )
+}
 
 export default Categories
