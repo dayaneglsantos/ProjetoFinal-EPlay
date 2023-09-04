@@ -26,7 +26,7 @@ const Banner = () => {
             por apenas {formataPreco(game?.prices.current)}
           </Preco>
         </div>
-        <ButtonLink to="/produto">Aproveitar</ButtonLink>
+        <ButtonLink to={`produto/${game?.id}`}>Aproveitar</ButtonLink>
       </div>
     </BannerContaier>
   )

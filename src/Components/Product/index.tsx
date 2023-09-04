@@ -8,6 +8,7 @@ type Props = {
   sistem: string
   img: string
   infos: string[]
+  id: number
 }
 
 const Product = ({
@@ -16,7 +17,8 @@ const Product = ({
   img,
   sistem,
   title,
-  infos
+  infos,
+  id
 }: Props) => {
   const getDescription = (title: string) => {
     if (title.length > 157) {
@@ -27,8 +29,8 @@ const Product = ({
   }
 
   return (
-    <Card>
-      <img src={img} alt="" />
+    <Card to={`/produto/${id}`}>
+      <img src={img} alt={title} />
       <Infos>
         {infos.map((info) => (
           <Tag key={info}>{info}</Tag>

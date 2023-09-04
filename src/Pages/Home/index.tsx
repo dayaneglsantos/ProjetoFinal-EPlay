@@ -6,7 +6,7 @@ export type Game = {
   id: number
   name: string
   description: string
-  relase_date: string
+  release_date: string
   prices: {
     discount: number
     old: number
@@ -22,7 +22,7 @@ export type Game = {
   media: {
     thumbnail: string
     cover: string
-    galery: []
+    gallery: []
   }
 }
 

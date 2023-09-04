@@ -19,8 +19,8 @@ const ProductsList = ({ sectionTitle, backgroundColor, games }: Props) => {
   const getTags = (game: Game) => {
     const tags = []
 
-    if (game.relase_date) {
-      tags.push(game.relase_date)
+    if (game.release_date) {
+      tags.push(game.release_date)
     }
     if (game.prices.discount) {
       tags.push(`${game.prices.discount}%`)
@@ -28,6 +28,7 @@ const ProductsList = ({ sectionTitle, backgroundColor, games }: Props) => {
     if (game.prices.current) {
       tags.push(formataPreco(game.prices.current))
     }
+    console.log(tags)
     return tags
   }
 
@@ -37,15 +38,18 @@ const ProductsList = ({ sectionTitle, backgroundColor, games }: Props) => {
         <Title>{sectionTitle}</Title>
         <List>
           {games.map((game) => (
-            <Product
-              key={game.id}
-              title={game.name}
-              category={game.details.category}
-              description={game.description}
-              img={game.media.thumbnail}
-              sistem={game.details.system}
-              infos={getTags(game)}
-            />
+            <li key={game.id}>
+              <Product
+                id={game.id}
+                key={game.id}
+                title={game.name}
+                category={game.details.category}
+                description={game.description}
+                img={game.media.thumbnail}
+                sistem={game.details.system}
+                infos={getTags(game)}
+              />
+            </li>
           ))}
         </List>
       </div>

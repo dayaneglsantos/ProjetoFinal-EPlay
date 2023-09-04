@@ -1,21 +1,29 @@
+import { Game } from '../../Pages/Home'
 import Botao from '../Button'
 import Tag from '../Tag'
 import { Banner, Infos } from './styles'
 
-const Hero = () => (
+type Props = {
+  game: Game
+}
+
+const Hero = ({ game }: Props) => (
   <>
-    <Banner>
+    <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="container">
         <div>
-          <Tag>RPG</Tag>
-          <Tag>PS5</Tag>
+          <Tag>{game.details.category}</Tag>
+          <Tag>{game.details.system}</Tag>
         </div>
         <Infos>
-          <h2>Hogwarts Legacy</h2>
+          <h2>{game.name}</h2>
           <p>
-            <span>De R$290,90</span> Por R$ 190,90
+            {game.prices.old && <span>De R$290,90</span>}
+            {game.prices.current && <>Por R$ 190,90</>}
           </p>
-          <Botao type="button">Adicionar ao carrinho</Botao>
+          {game.prices.current && (
+            <Botao type="button">Adicionar ao carrinho</Botao>
+          )}
         </Infos>
       </div>
     </Banner>

@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { Actions, Item, Items, Modal, ModalContent } from './styles'
-import starWars from '../../Assets/Images/star_wars.png'
-import resident from '../../Assets/Images/resident.png'
 import play from '../../Assets/Images/play.png'
 import zoom from '../../Assets/Images/zoom.png'
 import close from '../../Assets/Images/fechar.png'
@@ -15,27 +13,13 @@ interface ModalState extends GaleryItem {
   isVisible: boolean
 }
 
-const mock: GaleryItem[] = [
-  {
-    type: 'image',
-    url: starWars
-  },
-  {
-    type: 'image',
-    url: resident
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/jfKfPfyJRdk?si=EMcV8ZtUTOWHEQof'
-  }
-]
-
 type Props = {
   defaultCover: string
   name: string
+  itemsList: GaleryItem[]
 }
 
-const Galery = ({ defaultCover, name }: Props) => {
+const Galery = ({ defaultCover, name, itemsList }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     type: 'image',
@@ -62,7 +46,7 @@ const Galery = ({ defaultCover, name }: Props) => {
   return (
     <>
       <Items>
-        {mock.map((item, index) => (
+        {itemsList.map((item, index) => (
           <Item
             key={index}
             onClick={() =>
