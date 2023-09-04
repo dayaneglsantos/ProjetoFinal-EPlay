@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import banner from '../../Assets/Images/banner-homem-aranha.png'
+import { TagContainer } from '../Tag/styles'
 
 export const BannerContaier = styled.div`
   width: 100%;
@@ -15,6 +16,11 @@ export const BannerContaier = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+  }
+
+  ${TagContainer} {
+    position: absolute;
+    top: 32px;
   }
 `
 export const Titulo = styled.h2`

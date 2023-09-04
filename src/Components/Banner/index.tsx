@@ -1,11 +1,12 @@
 import { ButtonLink } from '../Button/styles'
-import { TagContainer } from '../Tag/styles'
+import Tag from '../Tag'
+
 import { BannerContaier, Preco, Titulo } from './styles'
 
 const Banner = () => (
   <BannerContaier>
     <div className="container">
-      <TagContainer size="big">Destaque do dia</TagContainer>
+      <Tag size="big">Destaque do dia</Tag>
       <div>
         <Titulo>Marvel&apos;s Spider-Man: Miles Morales PS4 & PS5</Titulo>
         <Preco>
