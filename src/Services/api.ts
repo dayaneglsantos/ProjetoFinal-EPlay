@@ -8,9 +8,43 @@ const api = createApi({
   endpoints: (builder) => ({
     getFeaturedGame: builder.query<Game, void>({
       query: () => 'destaque'
+    }),
+    getSoonGames: builder.query<Game[], void>({
+      query: () => 'em-breve'
+    }),
+    getOnSale: builder.query<Game[], void>({
+      query: () => 'promocoes'
+    }),
+    getActionGames: builder.query<Game[], void>({
+      query: () => 'acao'
+    }),
+    getSportGames: builder.query<Game[], void>({
+      query: () => 'esportes'
+    }),
+    getSimulationGames: builder.query<Game[], void>({
+      query: () => 'simulacao'
+    }),
+    getRpgGames: builder.query<Game[], void>({
+      query: () => 'rpg'
+    }),
+    getFightGames: builder.query<Game[], void>({
+      query: () => 'luta'
+    }),
+    getGame: builder.query<Game, string>({
+      query: (id) => `jogos/${id}`
     })
   })
 })
 
-export const { useGetFeaturedGameQuery } = api
+export const {
+  useGetFeaturedGameQuery,
+  useGetOnSaleQuery,
+  useGetSoonGamesQuery,
+  useGetActionGamesQuery,
+  useGetFightGamesQuery,
+  useGetSimulationGamesQuery,
+  useGetSportGamesQuery,
+  useGetRpgGamesQuery,
+  useGetGameQuery
+} = api
 export default api

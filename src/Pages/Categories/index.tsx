@@ -1,60 +1,47 @@
-import { useEffect, useState } from 'react'
 import ProductsList from '../../Components/ProductsList'
+import {
+  useGetActionGamesQuery,
+  useGetFightGamesQuery,
+  useGetRpgGamesQuery,
+  useGetSimulationGamesQuery,
+  useGetSportGamesQuery
+} from '../../Services/api'
 
 const Categories = () => {
-  const [acao, setAcao] = useState([])
-  const [esportes, setEsportes] = useState([])
-  const [luta, setLuta] = useState([])
-  const [RPG, setRPG] = useState([])
-  const [simulacao, setSimulacao] = useState([])
+  const { data: acao } = useGetActionGamesQuery()
+  const { data: luta } = useGetFightGamesQuery()
+  const { data: RPG } = useGetRpgGamesQuery()
+  const { data: simulacao } = useGetSimulationGamesQuery()
+  const { data: esportes } = useGetSportGamesQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/acao')
-      .then((resp) => resp.json())
-      .then((json) => setAcao(json))
-
-    fetch('https://fake-api-tau.vercel.app/api/eplay/esportes')
-      .then((resp) => resp.json())
-      .then((json) => setEsportes(json))
-
-    fetch('https://fake-api-tau.vercel.app/api/eplay/luta')
-      .then((resp) => resp.json())
-      .then((json) => setLuta(json))
-
-    fetch('https://fake-api-tau.vercel.app/api/eplay/rpg')
-      .then((resp) => resp.json())
-      .then((json) => setRPG(json))
-
-    fetch('https://fake-api-tau.vercel.app/api/eplay/simulacao')
-      .then((resp) => resp.json())
-      .then((json) => setSimulacao(json))
-  }, [])
-
-  return (
-    <>
-      <ProductsList
-        games={acao}
-        backgroundColor={'black'}
-        sectionTitle="Ação"
-      />
-      <ProductsList
-        games={esportes}
-        backgroundColor={'gray'}
-        sectionTitle="Esportes"
-      />
-      <ProductsList
-        games={luta}
-        backgroundColor={'black'}
-        sectionTitle="Luta"
-      />
-      <ProductsList games={RPG} backgroundColor={'gray'} sectionTitle="RPG" />
-      <ProductsList
-        games={simulacao}
-        backgroundColor={'black'}
-        sectionTitle="Simulação"
-      />
-    </>
-  )
+  if (acao && luta && RPG && simulacao && esportes) {
+    return (
+      <>
+        <ProductsList
+          games={acao}
+          backgroundColor={'black'}
+          sectionTitle="Ação"
+        />
+        <ProductsList
+          games={esportes}
+          backgroundColor={'gray'}
+          sectionTitle="Esportes"
+        />
+        <ProductsList
+          games={luta}
+          backgroundColor={'black'}
+          sectionTitle="Luta"
+        />
+        <ProductsList games={RPG} backgroundColor={'gray'} sectionTitle="RPG" />
+        <ProductsList
+          games={simulacao}
+          backgroundColor={'black'}
+          sectionTitle="Simulação"
+        />
+      </>
+    )
+  }
+  return <h4>Carregando...</h4>
 }
 
 export default Categories
