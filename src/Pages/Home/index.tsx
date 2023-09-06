@@ -38,11 +38,13 @@ const Home = () => {
           games={promocoes}
           backgroundColor={'gray'}
           sectionTitle="Promoções"
+          id="onSale"
         />
         <ProductsList
           games={emBreve}
           backgroundColor={'black'}
           sectionTitle="Em Breve"
+          id="coming-soon"
         />
       </>
     )
