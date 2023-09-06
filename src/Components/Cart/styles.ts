@@ -10,9 +10,13 @@ export const CartContainer = styled.div`
   top: 0;
   left: 0;
   position: fixed;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   z-index: 1;
+
+  &.open {
+    display: flex;
+  }
 `
 
 export const Overlay = styled.div`

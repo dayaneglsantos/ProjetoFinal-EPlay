@@ -13,6 +13,7 @@ export const ButtonContainer = styled.button<Props>`
   background-color: ${(props) =>
     props.btnStyle === 'primary' ? cores.verde : 'transparent'};
   border-radius: 8px;
+  cursor: pointer;
 `
 export const ButtonLink = styled(Link)`
   font-size: 16px;
