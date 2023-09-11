@@ -1,12 +1,23 @@
 import styled from 'styled-components'
-import { ButtonContainer } from '../../Components/Button/styles'
+import { cores } from '../../styles'
+
+type TabButtonProps = {
+  isActive: boolean
+}
+
+type InputGroupProps = {
+  maxWidth?: string
+}
 
 export const Row = styled.div`
   display: flex;
+  align-items: flex-end;
+  margin-top: 16px;
 `
-export const InputGroup = styled.div`
+export const InputGroup = styled.div<InputGroupProps>`
   margin-right: 24px;
   flex: auto;
+  max-width: ${(props) => props.maxWidth || 'auto'};
 
   label {
     font-size: 14px;
@@ -18,5 +29,23 @@ export const InputGroup = styled.div`
     border: none;
     height: 32px;
     width: 100%;
+    border: 1px solid ${cores.branco};
+  }
+`
+
+export const TabButton = styled.button<TabButtonProps>`
+  background-color: ${(props) => (props.isActive ? cores.verde : cores.preto)};
+  color: ${cores.branco};
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 16px;
+  border: none;
+  border-radius: 8px;
+  height: 32px;
+  cursor: pointer;
+
+  img {
+    margin-right: 8px;
   }
 `
