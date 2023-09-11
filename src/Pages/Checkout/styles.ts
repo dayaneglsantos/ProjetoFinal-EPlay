@@ -30,6 +30,7 @@ export const InputGroup = styled.div<InputGroupProps>`
     height: 32px;
     width: 100%;
     border: 1px solid ${cores.branco};
+    padding: 0 8px;
   }
 `
 
