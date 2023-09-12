@@ -1,9 +1,12 @@
 import { useDispatch } from 'react-redux'
+
 import { Game } from '../../Pages/Home'
 import Botao from '../Button'
 import Tag from '../Tag'
-import { Banner, Infos } from './styles'
+
 import { add, open } from '../../Store/Reducers/cart'
+
+import { Banner, Infos } from './styles'
 
 type Props = {
   game: Game

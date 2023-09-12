@@ -1,3 +1,14 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { HashLink } from 'react-router-hash-link'
+
+import { open } from '../../Store/Reducers/cart'
+import { RootReducer } from '../../Store'
+
+import logo from '../../Assets/Images/logo.svg'
+import carrinho from '../../Assets/Images/carrinho.svg'
+
 import {
   Cabecalho,
   HeaderRow,
@@ -7,14 +18,6 @@ import {
   MenuSmall,
   NavMobile
 } from './styles'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import logo from '../../Assets/Images/logo.svg'
-import carrinho from '../../Assets/Images/carrinho.svg'
-import { open } from '../../Store/Reducers/cart'
-import { RootReducer } from '../../Store'
-import { useState } from 'react'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -43,10 +46,10 @@ const Header = () => {
                 <Link to="/categorias">Categorias</Link>
               </LinkItem>
               <LinkItem>
-                <a href="#">Novidades</a>
+                <HashLink to="#coming-soon">Em breve</HashLink>
               </LinkItem>
               <LinkItem>
-                <a href="#">Promoções</a>
+                <HashLink to="#onSale">Promoções</HashLink>
               </LinkItem>
             </Links>
           </nav>
@@ -59,13 +62,19 @@ const Header = () => {
       <NavMobile className={menuOpen ? 'active' : ''}>
         <Links>
           <LinkItem>
-            <Link to="/categorias">Categorias</Link>
+            <Link to="/categorias" onClick={() => setMenuOpen(false)}>
+              Categorias
+            </Link>
           </LinkItem>
           <LinkItem>
-            <a href="#">Novidades</a>
+            <HashLink to="#coming-soon" onClick={() => setMenuOpen(false)}>
+              Em breve
+            </HashLink>
           </LinkItem>
           <LinkItem>
-            <a href="#">Promoções</a>
+            <HashLink to="#onSale" onClick={() => setMenuOpen(false)}>
+              Promoções
+            </HashLink>
           </LinkItem>
         </Links>
       </NavMobile>

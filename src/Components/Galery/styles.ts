@@ -22,6 +22,7 @@ export const Actions = styled.div`
 
 export const Item = styled.li`
   position: relative;
+  cursor: zoom-in;
 
   &:hover {
     ${Actions} {

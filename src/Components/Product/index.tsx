@@ -1,5 +1,6 @@
-import { Card, Description, Infos, Title } from './styles'
 import Tag from '../Tag'
+
+import { Card, Description, Infos, Title } from './styles'
 
 type Props = {
   title: string

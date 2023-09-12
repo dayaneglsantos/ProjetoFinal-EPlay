@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Actions, Item, Items, Modal, ModalContent } from './styles'
 import play from '../../Assets/Images/play.png'
 import zoom from '../../Assets/Images/zoom.png'
 import close from '../../Assets/Images/fechar.png'
+import { Actions, Item, Items, Modal, ModalContent } from './styles'
 
 interface GaleryItem {
   type: 'image' | 'video'

@@ -1,8 +1,10 @@
-import { ButtonLink } from '../Button/styles'
-import Tag from '../Tag'
-import { BannerContaier, Preco, Titulo } from './styles'
 import { formataPreco } from '../ProductsList'
+import Tag from '../Tag'
+
 import { useGetFeaturedGameQuery } from '../../Services/api'
+
+import { ButtonLink } from '../Button/styles'
+import { BannerContaier, Preco, Titulo } from './styles'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()

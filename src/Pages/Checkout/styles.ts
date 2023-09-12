@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { CardContainer } from '../../Components/Card/styled'
 
 type TabButtonProps = {
   isActive: boolean
