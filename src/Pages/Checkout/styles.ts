@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
+import { CardContainer } from '../../Components/Card/styled'
 
 type TabButtonProps = {
   isActive: boolean
@@ -49,4 +50,7 @@ export const TabButton = styled.button<TabButtonProps>`
   img {
     margin-right: 8px;
   }
+`
+export const P = styled.p`
+  margin-top: 16px;
 `
