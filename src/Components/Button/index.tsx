@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   to?: string
   onClick?: () => void
   children: string
@@ -15,9 +15,9 @@ const Button = ({
   to,
   btnStyle = 'primary'
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
-      <S.ButtonContainer type="button" onClick={onClick} btnStyle={btnStyle}>
+      <S.ButtonContainer type={type} onClick={onClick} btnStyle={btnStyle}>
         {children}
       </S.ButtonContainer>
     )
