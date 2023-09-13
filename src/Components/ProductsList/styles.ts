@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Props } from '.'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Card } from '../Product/styles'
 
 export const SectionContainer = styled.section<
@@ -8,11 +8,11 @@ export const SectionContainer = styled.section<
 >`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.backgroundColor === 'black' ? cores.preto : cores.cinza};
+    props.backgroundColor === 'black' ? colors.black : colors.gray};
 
   ${Card} {
     background-color: ${(props) =>
-      props.backgroundColor === 'black' ? cores.cinza : cores.preto};
+      props.backgroundColor === 'black' ? colors.gray : colors.black};
   }
 `
 

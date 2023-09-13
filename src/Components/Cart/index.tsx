@@ -1,20 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import Botao from '../Button'
+import Button from '../Button'
 import Tag from '../Tag'
 
 import { RootReducer } from '../../Store'
 import { close, remove } from '../../Store/Reducers/cart'
-import { formataPreco } from '../ProductsList'
 
-import {
-  CartContainer,
-  Overlay,
-  Quantity,
-  Sidebar,
-  Price,
-  CartItem
-} from './styles'
+import * as S from './styles'
+import { parseToBrl } from '../../Utils'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -33,31 +26,31 @@ const Cart = () => {
   const removeItem = (id: number) => [dispatch(remove(id))]
 
   return (
-    <CartContainer className={isOpen ? 'open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <S.CartContainer className={isOpen ? 'open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
         <ul>
           {items.map((item) => (
-            <CartItem key={item.id}>
+            <S.CartItem key={item.id}>
               <img src={item.media.thumbnail} alt="" />
               <div>
                 <h3>{item.name}</h3>
                 <Tag>{item.details.category}</Tag>
                 <Tag>{item.details.system}</Tag>
-                <span>{formataPreco(item.prices.current)}</span>
+                <span>{parseToBrl(item.prices.current)}</span>
               </div>
               <button type="button" onClick={() => removeItem(item.id)} />
-            </CartItem>
+            </S.CartItem>
           ))}
         </ul>
-        <Quantity>{items.length} jogo(s) no carrinho</Quantity>
-        <Price>
-          Total de R$ {formataPreco(getTotalPrice())}{' '}
+        <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
+        <S.Price>
+          Total de R$ {parseToBrl(getTotalPrice())}{' '}
           <span>em até 6x sem juros</span>
-        </Price>
-        <Botao type="button">Continuar com a compra</Botao>
-      </Sidebar>
-    </CartContainer>
+        </S.Price>
+        <Button type="button">Continuar com a compra</Button>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 export default Cart

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import play from '../../Assets/Images/play.png'
 import zoom from '../../Assets/Images/zoom.png'
 import close from '../../Assets/Images/fechar.png'
-import { Actions, Item, Items, Modal, ModalContent } from './styles'
+import * as S from './styles'
 
 interface GaleryItem {
   type: 'image' | 'video'
@@ -45,9 +45,9 @@ const Galery = ({ defaultCover, name, itemsList }: Props) => {
 
   return (
     <>
-      <Items>
+      <S.Items>
         {itemsList.map((item, index) => (
-          <Item
+          <S.Item
             key={index}
             onClick={() =>
               setModal({
@@ -61,30 +61,26 @@ const Galery = ({ defaultCover, name, itemsList }: Props) => {
               src={getMediaCover(item)}
               alt={`Mídia ${index + 1} do jogo ${name}`}
             />
-            <Actions>
+            <S.Actions>
               <img src={getMediaIcon(item)} alt="Ampliar mídia" />
-            </Actions>
-          </Item>
+            </S.Actions>
+          </S.Item>
         ))}
-      </Items>
-      <Modal className={modal.isVisible ? 'visible' : ''}>
-        <ModalContent className="container">
+      </S.Items>
+      <S.Modal className={modal.isVisible ? 'visible' : ''}>
+        <S.ModalContent className="container">
           <header>
             <h4>{name}</h4>
-            <img
-              src={close}
-              alt="Icone de fechar"
-              onClick={() => closemodal()}
-            />
+            <img src={close} alt="Icone de fechar" onClick={closemodal} />
           </header>
           {modal.type === 'image' ? (
             <img src={modal.url} />
           ) : (
             <iframe src={modal.url} frameBorder="0"></iframe>
           )}
-        </ModalContent>
-        <div className="overlay" onClick={() => closemodal()}></div>
-      </Modal>
+        </S.ModalContent>
+        <div className="overlay" onClick={closemodal}></div>
+      </S.Modal>
     </>
   )
 }

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 import { TagContainer } from '../Tag/styles'
-import fechar from '../../Assets/Images/fechar.png'
+import close from '../../Assets/Images/fechar.png'
 
 export const CartContainer = styled.div`
   width: 100%;
@@ -29,12 +29,12 @@ export const Overlay = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   max-width: 360px;
   width: 100%;
   z-index: 1;
   padding: 40px 16px 0 16px;
-  color: ${cores.branco};
+  color: ${colors.white};
 
   ${ButtonContainer} {
     width: 100%;
@@ -52,14 +52,14 @@ export const Price = styled.p`
   margin-bottom: 24px;
 
   span {
-    color: ${cores.cinzaClaro};
+    color: ${colors.lightGray};
     display: block;
   }
 `
 export const CartItem = styled.li`
   display: flex;
   padding: 8px 0;
-  border-bottom: 1px solid ${cores.cinzaClaro};
+  border-bottom: 1px solid ${colors.lightGray};
   position: relative;
 
   img {
@@ -85,7 +85,7 @@ export const CartItem = styled.li`
   }
 
   button {
-    background-image: url(${fechar});
+    background-image: url(${close});
     position: absolute;
     top: 8px;
     right: 0px;

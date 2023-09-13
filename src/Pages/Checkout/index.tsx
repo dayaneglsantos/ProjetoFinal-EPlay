@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import Botao from '../../Components/Button'
+import Button from '../../Components/Button'
 import Card from '../../Components/Card'
 
-import cartao from '../../Assets/Images/cartao.svg'
-import boleto from '../../Assets/Images/boleto.svg'
+import creditCard from '../../Assets/Images/cartao.svg'
+import barCode from '../../Assets/Images/boleto.svg'
 
 import { usePurchaseMutation } from '../../Services/api'
 
-import { InputGroup, P, Row, TabButton } from './styles'
+import * as S from './styles'
 
 const Checkout = () => {
   const [payWithCard, setPayWithCard] = useState(false)
@@ -123,44 +123,44 @@ const Checkout = () => {
       {isSuccess ? (
         <Card title="Muito obrigado">
           <>
-            <P>
+            <S.P>
               É com satisfação que informamos que recebemos seu pedido com
               sucesso! <br />
               Abaixo estão os detalhes da sua compra: <br />
               Número do pedido: {data} <br />
               Forma de pagamento:
               {payWithCard ? ' Cartão de crétido' : ' Boleto bancário'} <br />
-            </P>
-            <P>
+            </S.P>
+            <S.P>
               Caso tenha optado pelo pagamento via boleto bancário, lembre-se de
               que a confirmação pode levar até 3 dias úteis. Após a aprovação do
               pagamento, enviaremos um e-mail contendo o código de ativação do
               jogo
-            </P>
-            <P>
+            </S.P>
+            <S.P>
               Se você optou pelo pagamento com cartão de crédito, a liberação do
               código de ativação ocorrerá após a aprovação da transação pela
               operadora do cartão. Você receberá o código no e-mail cadastrado
               em nossa loja.
-            </P>
-            <P>
+            </S.P>
+            <S.P>
               Pedimos que verifique sua caixa de entrada e a pasta de spam para
               garantir que receba nossa comunicação. Caso tenha alguma dúvida ou
               necessite de mais informações, por favor, entre em contato conosco
               através dos nossos canais de atendimento ao cliente.
-            </P>
-            <P>
+            </S.P>
+            <S.P>
               Agradecemos por escolher a EPLAY e esperamos que desfrute do seu
               jogo!
-            </P>
+            </S.P>
           </>
         </Card>
       ) : (
         <form onSubmit={form.handleSubmit}>
           <Card title="Dados de cobrança">
             <>
-              <Row>
-                <InputGroup>
+              <S.Row>
+                <S.InputGroup>
                   <label htmlFor="name">Nome completo</label>
                   <input
                     type="text"
@@ -171,8 +171,8 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>{getErrorMessage('name', form.errors.name)}</small>
-                </InputGroup>
-                <InputGroup>
+                </S.InputGroup>
+                <S.InputGroup>
                   <label htmlFor="email">E-mail</label>
                   <input
                     type="email"
@@ -183,8 +183,8 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>{getErrorMessage('email', form.errors.email)}</small>
-                </InputGroup>
-                <InputGroup>
+                </S.InputGroup>
+                <S.InputGroup>
                   <label htmlFor="cpf">CPF</label>
                   <input
                     type="text"
@@ -195,11 +195,11 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>{getErrorMessage('cpf', form.errors.cpf)}</small>
-                </InputGroup>
-              </Row>
+                </S.InputGroup>
+              </S.Row>
               <h3>Dados de entrega - conteúdo digital</h3>
-              <Row>
-                <InputGroup>
+              <S.Row>
+                <S.InputGroup>
                   <label htmlFor="deliveryEmail">E-mail</label>
                   <input
                     type="email"
@@ -215,8 +215,8 @@ const Checkout = () => {
                       form.errors.deliveryEmail
                     )}
                   </small>
-                </InputGroup>
-                <InputGroup>
+                </S.InputGroup>
+                <S.InputGroup>
                   <label htmlFor="confirmDeliveryEmail">
                     Confirme o e-mail
                   </label>
@@ -234,31 +234,31 @@ const Checkout = () => {
                       form.errors.confirmDeliveryEmail
                     )}
                   </small>
-                </InputGroup>
-              </Row>
+                </S.InputGroup>
+              </S.Row>
             </>
           </Card>
           <Card title="Pagamento">
             <>
-              <TabButton
+              <S.TabButton
                 isActive={!payWithCard}
                 onClick={() => setPayWithCard(false)}
               >
-                <img src={boleto} alt="Boleto" />
+                <img src={barCode} alt="Boleto" />
                 Boleto bancário
-              </TabButton>
-              <TabButton
+              </S.TabButton>
+              <S.TabButton
                 isActive={payWithCard}
                 onClick={() => setPayWithCard(true)}
               >
-                <img src={cartao} alt="Boleto" />
+                <img src={creditCard} alt="Boleto" />
                 Cartão de crédito
-              </TabButton>
+              </S.TabButton>
 
               {payWithCard ? (
                 <>
-                  <Row>
-                    <InputGroup>
+                  <S.Row>
+                    <S.InputGroup>
                       <label htmlFor="cardOwner">
                         Nome do titular do cartão
                       </label>
@@ -273,8 +273,8 @@ const Checkout = () => {
                       <small>
                         {getErrorMessage('cardOwner', form.errors.cardOwner)}
                       </small>
-                    </InputGroup>
-                    <InputGroup>
+                    </S.InputGroup>
+                    <S.InputGroup>
                       <label htmlFor="cpfOwner">CPF do titular do cartão</label>
                       <input
                         type="text"
@@ -287,10 +287,10 @@ const Checkout = () => {
                       <small>
                         {getErrorMessage('cpfOwner', form.errors.cpfOwner)}
                       </small>
-                    </InputGroup>
-                  </Row>
-                  <Row>
-                    <InputGroup>
+                    </S.InputGroup>
+                  </S.Row>
+                  <S.Row>
+                    <S.InputGroup>
                       <label htmlFor="cardDisplayName">Nome no cartão</label>
                       <input
                         type="text"
@@ -306,8 +306,8 @@ const Checkout = () => {
                           form.errors.cardDisplayName
                         )}
                       </small>
-                    </InputGroup>
-                    <InputGroup>
+                    </S.InputGroup>
+                    <S.InputGroup>
                       <label htmlFor="cardNumber">Número do cartão</label>
                       <input
                         type="text"
@@ -320,8 +320,8 @@ const Checkout = () => {
                       <small>
                         {getErrorMessage('cardNumber', form.errors.cardNumber)}
                       </small>
-                    </InputGroup>
-                    <InputGroup maxWidth="124px">
+                    </S.InputGroup>
+                    <S.InputGroup maxWidth="124px">
                       <label htmlFor="expiresMonth">Mês de vencimento</label>
                       <input
                         type="text"
@@ -337,8 +337,8 @@ const Checkout = () => {
                           form.errors.expiresMonth
                         )}
                       </small>
-                    </InputGroup>
-                    <InputGroup maxWidth="124px">
+                    </S.InputGroup>
+                    <S.InputGroup maxWidth="124px">
                       <label htmlFor="expiresYear">Ano de vencimento</label>
                       <input
                         type="text"
@@ -354,8 +354,8 @@ const Checkout = () => {
                           form.errors.expiresYear
                         )}
                       </small>
-                    </InputGroup>
-                    <InputGroup maxWidth="48px">
+                    </S.InputGroup>
+                    <S.InputGroup maxWidth="48px">
                       <label htmlFor="cardCode">CVV</label>
                       <input
                         type="text"
@@ -368,10 +368,10 @@ const Checkout = () => {
                       <small>
                         {getErrorMessage('cardCode', form.errors.cardCode)}
                       </small>
-                    </InputGroup>
-                  </Row>
-                  <Row>
-                    <InputGroup>
+                    </S.InputGroup>
+                  </S.Row>
+                  <S.Row>
+                    <S.InputGroup>
                       <label htmlFor="installments">Parcelamento</label>
                       <select
                         name="installments"
@@ -384,11 +384,11 @@ const Checkout = () => {
                         <option>2x de R$ 150,00</option>
                         <option>2x de R$ 150,00</option>
                       </select>
-                    </InputGroup>
-                  </Row>
+                    </S.InputGroup>
+                  </S.Row>
                 </>
               ) : (
-                <Row>
+                <S.Row>
                   <p>
                     Ao optar por essa forma de pagamento, é importante lembrar
                     que a confirmação pode levar até 3 dias úteis, devido aos
@@ -397,13 +397,13 @@ const Checkout = () => {
                     adquirido ocorrerá somente após a aprovação do pagamento do
                     boleto.
                   </p>
-                </Row>
+                </S.Row>
               )}
             </>
           </Card>
-          <Botao type="button" onClick={form.handleSubmit}>
+          <Button type="button" onClick={form.handleSubmit}>
             Finalizar compra
-          </Botao>
+          </Button>
         </form>
       )}
     </div>

@@ -1,4 +1,4 @@
-import { ButtonContainer, ButtonLink } from './styles'
+import * as S from './styles'
 
 export type Props = {
   type: 'button' | 'link'
@@ -8,7 +8,7 @@ export type Props = {
   btnStyle?: 'primary' | 'secondary'
 }
 
-const Botao = ({
+const Button = ({
   type,
   children,
   onClick,
@@ -17,12 +17,12 @@ const Botao = ({
 }: Props) => {
   if (type === 'button') {
     return (
-      <ButtonContainer type="button" onClick={onClick} btnStyle={btnStyle}>
+      <S.ButtonContainer type="button" onClick={onClick} btnStyle={btnStyle}>
         {children}
-      </ButtonContainer>
+      </S.ButtonContainer>
     )
   }
-  return <ButtonLink to={to as string}>{children}</ButtonLink>
+  return <S.ButtonLink to={to as string}>{children}</S.ButtonLink>
 }
 
-export default Botao
+export default Button

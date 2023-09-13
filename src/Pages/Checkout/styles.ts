@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 type TabButtonProps = {
   isActive: boolean
@@ -29,14 +29,15 @@ export const InputGroup = styled.div<InputGroupProps>`
     border: none;
     height: 32px;
     width: 100%;
-    border: 1px solid ${cores.branco};
+    border: 1px solid ${colors.white};
     padding: 0 8px;
   }
 `
 
 export const TabButton = styled.button<TabButtonProps>`
-  background-color: ${(props) => (props.isActive ? cores.verde : cores.preto)};
-  color: ${cores.branco};
+  background-color: ${(props) =>
+    props.isActive ? colors.green : colors.black};
+  color: ${colors.white};
   padding: 0 8px;
   font-size: 14px;
   font-weight: bold;

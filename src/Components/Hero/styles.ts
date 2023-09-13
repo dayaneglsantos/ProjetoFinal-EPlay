@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Banner = styled.div`
@@ -37,7 +37,7 @@ export const Banner = styled.div`
   }
 `
 export const Infos = styled.div`
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   padding: 16px;
   font-weight: bold;
   position: relative;

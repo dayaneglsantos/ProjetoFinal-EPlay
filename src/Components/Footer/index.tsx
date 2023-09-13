@@ -1,50 +1,44 @@
-import {
-  FooterContainer,
-  FooterSection,
-  Link,
-  LinksList,
-  Title
-} from './styles'
+import * as S from './styles'
 
 const currentYear = new Date().getFullYear()
 
 const Footer = () => (
-  <FooterContainer>
+  <S.FooterContainer>
     <div className="container">
-      <FooterSection>
-        <Title>Categorias</Title>
-        <LinksList>
+      <S.FooterSection>
+        <S.Title>Categorias</S.Title>
+        <S.LinksList>
           <li>
-            <Link to="/categorias#rpg">RPG</Link>
+            <S.Link to="/categorias#rpg">RPG</S.Link>
           </li>
           <li>
-            <Link to="/categorias#action">Ação</Link>
+            <S.Link to="/categorias#action">Ação</S.Link>
           </li>
           <li>
-            <Link to="/categorias#sports">Esportes</Link>
+            <S.Link to="/categorias#sports">Esportes</S.Link>
           </li>
           <li>
-            <Link to="/categorias#simulation">Simulação</Link>
+            <S.Link to="/categorias#simulation">Simulação</S.Link>
           </li>
           <li>
-            <Link to="/categorias#fight">Luta</Link>
+            <S.Link to="/categorias#fight">Luta</S.Link>
           </li>
-        </LinksList>
-      </FooterSection>
-      <FooterSection>
-        <Title>Acesso rápido</Title>
-        <LinksList>
+        </S.LinksList>
+      </S.FooterSection>
+      <S.FooterSection>
+        <S.Title>Acesso rápido</S.Title>
+        <S.LinksList>
           <li>
-            <Link to="/#onSale">Promoções</Link>
+            <S.Link to="/#onSale">Promoções</S.Link>
           </li>
           <li>
-            <Link to="/#coming-soon">Em breve</Link>
+            <S.Link to="/#coming-soon">Em breve</S.Link>
           </li>
-        </LinksList>
-      </FooterSection>
+        </S.LinksList>
+      </S.FooterSection>
       <p>{currentYear} &copy; EPlay - Todos os direitos reservados</p>
     </div>
-  </FooterContainer>
+  </S.FooterContainer>
 )
 
 export default Footer

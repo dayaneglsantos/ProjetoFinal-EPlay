@@ -1,20 +1,14 @@
 import { Game } from '../../Pages/Home'
+import { parseToBrl } from '../../Utils'
 import Product from '../Product'
 
-import { List, SectionContainer, Title } from './styles'
+import * as S from './styles'
 
 export type Props = {
   sectionTitle: string
   backgroundColor: 'gray' | 'black'
   games: Game[]
   id?: string
-}
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const ProductsList = ({ sectionTitle, backgroundColor, games, id }: Props) => {
@@ -28,17 +22,17 @@ const ProductsList = ({ sectionTitle, backgroundColor, games, id }: Props) => {
       tags.push(`${game.prices.discount}%`)
     }
     if (game.prices.current) {
-      tags.push(formataPreco(game.prices.current))
+      tags.push(parseToBrl(game.prices.current))
     }
     console.log(tags)
     return tags
   }
 
   return (
-    <SectionContainer id={id} backgroundColor={backgroundColor}>
+    <S.SectionContainer id={id} backgroundColor={backgroundColor}>
       <div className="container">
-        <Title>{sectionTitle}</Title>
-        <List>
+        <S.Title>{sectionTitle}</S.Title>
+        <S.List>
           {games.map((game) => (
             <li key={game.id}>
               <Product
@@ -53,9 +47,9 @@ const ProductsList = ({ sectionTitle, backgroundColor, games, id }: Props) => {
               />
             </li>
           ))}
-        </List>
+        </S.List>
       </div>
-    </SectionContainer>
+    </S.SectionContainer>
   )
 }
 

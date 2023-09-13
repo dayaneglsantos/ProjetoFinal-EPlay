@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Links = styled.ul`
   display: flex;
@@ -11,15 +11,15 @@ export const Links = styled.ul`
     margin-top: 10px;
   }
 `
-export const Cabecalho = styled.header`
-  background-color: ${cores.cinza};
+export const HeaderContainer = styled.header`
+  background-color: ${colors.gray};
   padding: 24px;
   border-radius: 16px;
   margin-bottom: 80px;
 
   a {
     text-decoration: none;
-    color: ${cores.branco};
+    color: ${colors.white};
     font-weight: bold;
   }
 `
@@ -49,7 +49,7 @@ export const MenuSmall = styled.div`
     width: 100%;
     height: 2px;
     display: block;
-    background-color: ${cores.branco};
+    background-color: ${colors.white};
     margin-bottom: 4px;
   }
 

@@ -7,17 +7,9 @@ import { open } from '../../Store/Reducers/cart'
 import { RootReducer } from '../../Store'
 
 import logo from '../../Assets/Images/logo.svg'
-import carrinho from '../../Assets/Images/carrinho.svg'
+import cartIcon from '../../Assets/Images/carrinho.svg'
 
-import {
-  Cabecalho,
-  HeaderRow,
-  LinkCart,
-  LinkItem,
-  Links,
-  MenuSmall,
-  NavMobile
-} from './styles'
+import * as S from './styles'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -29,56 +21,56 @@ const Header = () => {
   }
 
   return (
-    <Cabecalho>
-      <HeaderRow>
+    <S.HeaderContainer>
+      <S.HeaderRow>
         <div>
-          <MenuSmall onClick={() => setMenuOpen(!menuOpen)}>
+          <S.MenuSmall onClick={() => setMenuOpen(!menuOpen)}>
             <span />
             <span />
             <span />
-          </MenuSmall>
+          </S.MenuSmall>
           <Link to="/">
             <img src={logo} alt="Logo Eplay" />
           </Link>
           <nav>
-            <Links>
-              <LinkItem>
+            <S.Links>
+              <S.LinkItem>
                 <Link to="/categorias">Categorias</Link>
-              </LinkItem>
-              <LinkItem>
+              </S.LinkItem>
+              <S.LinkItem>
                 <HashLink to="#coming-soon">Em breve</HashLink>
-              </LinkItem>
-              <LinkItem>
+              </S.LinkItem>
+              <S.LinkItem>
                 <HashLink to="#onSale">Promoções</HashLink>
-              </LinkItem>
-            </Links>
+              </S.LinkItem>
+            </S.Links>
           </nav>
         </div>
-        <LinkCart onClick={openCart} href="#">
+        <S.LinkCart onClick={openCart} href="#">
           {items.length} <span> - produto(s)</span>
-          <img src={carrinho} alt="" />
-        </LinkCart>
-      </HeaderRow>
-      <NavMobile className={menuOpen ? 'active' : ''}>
-        <Links>
-          <LinkItem>
+          <img src={cartIcon} alt="" />
+        </S.LinkCart>
+      </S.HeaderRow>
+      <S.NavMobile className={menuOpen ? 'active' : ''}>
+        <S.Links>
+          <S.LinkItem>
             <Link to="/categorias" onClick={() => setMenuOpen(false)}>
               Categorias
             </Link>
-          </LinkItem>
-          <LinkItem>
+          </S.LinkItem>
+          <S.LinkItem>
             <HashLink to="#coming-soon" onClick={() => setMenuOpen(false)}>
               Em breve
             </HashLink>
-          </LinkItem>
-          <LinkItem>
+          </S.LinkItem>
+          <S.LinkItem>
             <HashLink to="#onSale" onClick={() => setMenuOpen(false)}>
               Promoções
             </HashLink>
-          </LinkItem>
-        </Links>
-      </NavMobile>
-    </Cabecalho>
+          </S.LinkItem>
+        </S.Links>
+      </S.NavMobile>
+    </S.HeaderContainer>
   )
 }
 
