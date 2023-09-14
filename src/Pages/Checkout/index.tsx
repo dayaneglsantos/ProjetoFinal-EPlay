@@ -164,7 +164,7 @@ const Checkout = () => {
               É com satisfação que informamos que recebemos seu pedido com
               sucesso! <br />
               Abaixo estão os detalhes da sua compra: <br />
-              Número do pedido: {data} <br />
+              Número do pedido: {data.orderId} <br />
               Forma de pagamento:
               {payWithCard ? ' Cartão de crétido' : ' Boleto bancário'} <br />
             </S.P>

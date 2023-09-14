@@ -1,5 +1,6 @@
 import { Game } from '../../Pages/Home'
 import { parseToBrl } from '../../Utils'
+import Loader from '../Loader'
 import Product from '../Product'
 
 import * as S from './styles'
@@ -7,11 +8,18 @@ import * as S from './styles'
 export type Props = {
   sectionTitle: string
   backgroundColor: 'gray' | 'black'
-  games: Game[]
+  games?: Game[]
   id?: string
+  loading: boolean
 }
 
-const ProductsList = ({ sectionTitle, backgroundColor, games, id }: Props) => {
+const ProductsList = ({
+  sectionTitle,
+  backgroundColor,
+  games,
+  id,
+  loading
+}: Props) => {
   const getTags = (game: Game) => {
     const tags = []
 
@@ -28,25 +36,30 @@ const ProductsList = ({ sectionTitle, backgroundColor, games, id }: Props) => {
     return tags
   }
 
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <S.SectionContainer id={id} backgroundColor={backgroundColor}>
       <div className="container">
         <S.Title>{sectionTitle}</S.Title>
         <S.List>
-          {games.map((game) => (
-            <li key={game.id}>
-              <Product
-                id={game.id}
-                key={game.id}
-                title={game.name}
-                category={game.details.category}
-                description={game.description}
-                img={game.media.thumbnail}
-                sistem={game.details.system}
-                infos={getTags(game)}
-              />
-            </li>
-          ))}
+          {games &&
+            games.map((game) => (
+              <li key={game.id}>
+                <Product
+                  id={game.id}
+                  key={game.id}
+                  title={game.name}
+                  category={game.details.category}
+                  description={game.description}
+                  img={game.media.thumbnail}
+                  sistem={game.details.system}
+                  infos={getTags(game)}
+                />
+              </li>
+            ))}
         </S.List>
       </div>
     </S.SectionContainer>

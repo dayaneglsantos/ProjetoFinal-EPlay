@@ -4,7 +4,7 @@ import { breakpoints, colors } from '../../styles'
 import { Card } from '../Product/styles'
 
 export const SectionContainer = styled.section<
-  Omit<Props, 'sectionTitle' | 'games'>
+  Omit<Props, 'sectionTitle' | 'games' | 'loading'>
 >`
   padding: 32px 0;
   background-color: ${(props) =>

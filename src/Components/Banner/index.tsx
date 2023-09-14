@@ -5,10 +5,14 @@ import { useGetFeaturedGameQuery } from '../../Services/api'
 import { ButtonLink } from '../Button/styles'
 import * as S from './styles'
 import { parseToBrl } from '../../Utils'
+import Loader from '../Loader'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
 
+  if (!game) {
+    return <Loader />
+  }
   return (
     <S.BannerContaier style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="container">

@@ -1,4 +1,5 @@
 import Banner from '../../Components/Banner'
+import Loader from '../../Components/Loader'
 import ProductsList from '../../Components/ProductsList'
 import { useGetOnSaleQuery, useGetSoonGamesQuery } from '../../Services/api'
 
@@ -27,29 +28,31 @@ export type Game = {
 }
 
 const Home = () => {
-  const { data: promocoes } = useGetOnSaleQuery()
-  const { data: emBreve } = useGetSoonGamesQuery()
+  const { data: onSale, isLoading: loadingSale } = useGetOnSaleQuery()
+  const { data: soon, isLoading: loadingSoon } = useGetSoonGamesQuery()
 
-  if (promocoes && emBreve) {
+  if (onSale && soon) {
     return (
       <>
         <Banner />
         <ProductsList
-          games={promocoes}
+          games={onSale}
           backgroundColor={'gray'}
           sectionTitle="Promoções"
           id="onSale"
+          loading={loadingSale}
         />
         <ProductsList
-          games={emBreve}
+          games={soon}
           backgroundColor={'black'}
           sectionTitle="Em Breve"
           id="coming-soon"
+          loading={loadingSoon}
         />
       </>
     )
   }
-  return <h4>Carregando...</h4>
+  return <Loader />
 }
 
 export default Home

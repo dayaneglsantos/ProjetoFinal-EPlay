@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import Categories from './Pages/Categories'
-import Produto from './Pages/Produto'
+import Produto from './Pages/Product'
 import Checkout from './Pages/Checkout'
 
 const Rotas = () => (
