@@ -4,19 +4,14 @@ import zoom from '../../Assets/Images/zoom.png'
 import close from '../../Assets/Images/fechar.png'
 import * as S from './styles'
 
-interface GaleryItem {
-  type: 'image' | 'video'
-  url: string
-}
-
-interface ModalState extends GaleryItem {
+interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
 type Props = {
   defaultCover: string
   name: string
-  itemsList: GaleryItem[]
+  itemsList: GalleryItem[]
 }
 
 const Galery = ({ defaultCover, name, itemsList }: Props) => {
@@ -34,11 +29,11 @@ const Galery = ({ defaultCover, name, itemsList }: Props) => {
     })
   }
 
-  const getMediaCover = (item: GaleryItem) => {
+  const getMediaCover = (item: GalleryItem) => {
     if (item.type === 'image') return item.url
     return defaultCover
   }
-  const getMediaIcon = (item: GaleryItem) => {
+  const getMediaIcon = (item: GalleryItem) => {
     if (item.type === 'image') return zoom
     return play
   }

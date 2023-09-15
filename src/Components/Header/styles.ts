@@ -17,10 +17,15 @@ export const HeaderContainer = styled.header`
   border-radius: 16px;
   margin-bottom: 80px;
 
-  a {
+  a,
+  span {
     text-decoration: none;
     color: ${colors.white};
     font-weight: bold;
+  }
+
+  h1 {
+    line-height: 0;
   }
 `
 
@@ -28,8 +33,9 @@ export const LinkItem = styled.li`
   margin-right: 16px;
 `
 
-export const LinkCart = styled.a`
+export const LinkCart = styled.span`
   display: flex;
+  cursor: pointer;
 
   img {
     margin-left: 16px;

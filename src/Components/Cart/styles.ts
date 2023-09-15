@@ -95,3 +95,6 @@ export const CartItem = styled.li`
     background-color: transparent;
   }
 `
+export const EmptyCart = styled.p`
+  text-align: center;
+`

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 type TabButtonProps = {
   isActive: boolean
@@ -13,6 +13,10 @@ export const Row = styled.div`
   display: flex;
   align-items: flex-end;
   margin-top: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
 `
 export const InputGroup = styled.div<InputGroupProps>`
   margin-right: 24px;
@@ -36,6 +40,10 @@ export const InputGroup = styled.div<InputGroupProps>`
       border: 1px solid red;
     }
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
+  }
 `
 
 export const TabButton = styled.button<TabButtonProps>`
@@ -53,6 +61,11 @@ export const TabButton = styled.button<TabButtonProps>`
 
   img {
     margin-right: 8px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    margin-top: 8px;
   }
 `
 export const P = styled.p`

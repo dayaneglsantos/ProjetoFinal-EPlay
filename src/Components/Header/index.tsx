@@ -30,7 +30,9 @@ const Header = () => {
             <span />
           </S.MenuSmall>
           <Link to="/">
-            <img src={logo} alt="Logo Eplay" />
+            <h1>
+              <img src={logo} alt="Logo Eplay" />
+            </h1>
           </Link>
           <nav>
             <S.Links>
@@ -46,8 +48,9 @@ const Header = () => {
             </S.Links>
           </nav>
         </div>
-        <S.LinkCart onClick={openCart} href="#">
-          {items.length} <span> - produto(s)</span>
+        <S.LinkCart role="button" onClick={openCart}>
+          {items.length}
+          <span> - produto(s)</span>
           <img src={cartIcon} alt="" />
         </S.LinkCart>
       </S.HeaderRow>
